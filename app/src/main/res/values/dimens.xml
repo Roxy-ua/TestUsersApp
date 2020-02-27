@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- User List Item -->
+    <dimen name="user_photo_size">100dp</dimen>
+    <dimen name="user_list_name_size">20sp</dimen>
+</resources>
