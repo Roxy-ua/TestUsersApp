@@ -2,4 +2,10 @@
     <string name="app_name">TestUsersApp</string>
     <string name="main_name">Home</string>
     <string name="detail_name">Profile</string>
+    <string name="form_cell_phone">Cell Phone</string>
+    <string name="form_email">Email</string>
+    <string name="form_location">Location</string>
+    <string name="years_old">%d years old</string>
+
+
 </resources>

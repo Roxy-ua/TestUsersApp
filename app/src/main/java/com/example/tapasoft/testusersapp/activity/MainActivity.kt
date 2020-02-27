@@ -13,6 +13,9 @@ import com.example.tapasoft.testusersapp.viewmodel.UserViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
+    companion object {
+        const val KEY_USER_ID = "key_user_id"
+    }
     private lateinit var viewModel: UserViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,7 +35,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun startUserDetailsActivity(user: User) {
         val intent = Intent(this, DetailsActivity::class.java)
-        //intent.putExtra(USER_ID, user)
+        intent.putExtra(KEY_USER_ID, user)
         startActivity(intent)
     }
 

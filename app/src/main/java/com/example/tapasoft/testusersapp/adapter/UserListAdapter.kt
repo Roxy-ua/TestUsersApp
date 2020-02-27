@@ -1,5 +1,6 @@
 package com.example.tapasoft.testusersapp.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
@@ -12,8 +13,6 @@ import com.squareup.picasso.Picasso
 
 class UserListAdapter(var items: List<User>, val listener: (User) -> Unit)
     : RecyclerView.Adapter<UserListAdapter.UserViewHolder>() {
-
-    var curPos: Int = 0
 
     override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
         val user: User = items[position]
@@ -41,12 +40,11 @@ class UserListAdapter(var items: List<User>, val listener: (User) -> Unit)
         }
 
         fun bind(user: User, listener: (User) -> Unit) = with(itemView) {
-            nameView?.text = "${user.name.first} ${user.name.last}"
+            nameView?.text = user.name.first + " " + user.name.last
             val photoUrl = user.picture.thumbnail
             Picasso.get().load(photoUrl).placeholder(R.drawable.bill_up_close).into(photoView)
 
             setOnClickListener {
-                curPos = adapterPosition
                 listener(user)
             }
         }

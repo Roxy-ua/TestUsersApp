@@ -3,4 +3,6 @@
     <!-- User List Item -->
     <dimen name="user_photo_size">100dp</dimen>
     <dimen name="user_list_name_size">20sp</dimen>
+    <dimen name="user_name_size">22sp</dimen>
+    <dimen name="user_age_size">18sp</dimen>
 </resources>
