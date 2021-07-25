@@ -8,9 +8,10 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 import kotlin.coroutines.CoroutineContext
 
-class UserViewModel(private val repository: DataRepository = DataRepository()) : ViewModel() {
+class UserViewModel @Inject constructor(private val repository: DataRepository) : ViewModel() {
 
     private val parentJob = Job()
     private val coroutineContext: CoroutineContext

@@ -8,21 +8,28 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.tapasoft.testusersapp.R
 import com.example.tapasoft.testusersapp.adapter.UserListAdapter
+import com.example.tapasoft.testusersapp.appComp
 import com.example.tapasoft.testusersapp.model.User
 import com.example.tapasoft.testusersapp.viewmodel.UserViewModel
+import com.example.tapasoft.testusersapp.viewmodel.UserViewModelFactory
 import kotlinx.android.synthetic.main.activity_main.*
+import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
     companion object {
         const val KEY_USER_ID = "key_user_id"
     }
+
+    @Inject
+    lateinit var viewModelFactory: UserViewModelFactory
     private lateinit var viewModel: UserViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        appComp.inject(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        viewModel = ViewModelProvider.NewInstanceFactory().create(UserViewModel::class.java)
+        viewModel = ViewModelProvider(this, viewModelFactory).get(UserViewModel::class.java)
         viewModel.fetchDataFromServer()
 
         viewModel.userLiveData.observe(this, Observer {

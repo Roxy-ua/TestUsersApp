@@ -1,12 +1,11 @@
 package com.example.tapasoft.testusersapp.repository
 
 import android.util.Log
-import com.example.tapasoft.testusersapp.api.ApiClient
 import retrofit2.Response
 import java.io.IOException
 
 open class BaseRepository{
-    protected val api = ApiClient.clientApi
+    //protected val api = ApiClient.clientApi
 
     suspend fun <T : Any> safeApiCall(call: suspend () -> Response<T>, errorMessage: String): T? {
 
